@@ -1,10 +1,11 @@
 /* function for calculating extra product cost */
-function getProductCost(product, extra, price) {
+function getProductCost(product, price) {
     const extraMemoryCost = document.getElementById('extra-memory-cost');
     const extraStorageCost = document.getElementById('extra-storage-cost');
     const delivaryCost = document.getElementById('delivary-cost');
     if (product == 'memory-8gb') {
         extraMemoryCost.innerText = '0';
+        updateTotal();
     }
     else if (product == 'memory-16gb') {
         extraMemoryCost.innerText = '180';
@@ -31,18 +32,23 @@ function getProductCost(product, extra, price) {
         updateTotal();
     }
 }
-
-// function for calculating total price 
-function updateTotal() {
+// get input value for calculaing total price
+function getInputValue() {
     const bestPriceTotal = Number(document.getElementById('best-price').innerText);
     const memoryCostTotal = Number(document.getElementById('extra-memory-cost').innerText);
     const storageCostTotal = Number(document.getElementById('extra-storage-cost').innerText);
     const delivaryCostTotal = Number(document.getElementById('delivary-cost').innerText);
     const grantTotal = bestPriceTotal + memoryCostTotal + storageCostTotal + delivaryCostTotal;
-    const total = document.getElementById('total-price');
-    total.innerText = grantTotal;
+    return grantTotal;
 }
-
+// function for calculating total price 
+function updateTotal() {
+    totalPrice = getInputValue();
+    const total = document.getElementById('total-price');
+    total.innerText = totalPrice;
+    const finalTotal = document.getElementById('final-total-price');
+    finalTotal.innerText = totalPrice;
+}
 
 // get access two memory button
 document.getElementById('memory-8gb').addEventListener('click', function () {
@@ -68,5 +74,5 @@ document.getElementById('free-delivary').addEventListener('click', function () {
     getProductCost('free-delivary', 0);
 });
 document.getElementById('delivary-with-charge').addEventListener('click', function () {
-    getProductCost('delivary-with-charge', 20);
+    getProductCost('delivary-with-charge', 20,);
 });
