@@ -1,0 +1,13 @@
+/*-----------------/
+custom stylesheet 
+/------------------*/
+.mac-btn:hover{
+    color: white;
+    background-color: black;
+}
+hr{
+    opacity: 20%;
+}
+.mac-hr{
+    opacity: 100%;
+}
