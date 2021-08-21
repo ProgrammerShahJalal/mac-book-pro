@@ -8,25 +8,41 @@ function getProductCost(product, extra, price) {
     }
     else if (product == 'memory-16gb') {
         extraMemoryCost.innerText = '180';
+        updateTotal();
     }
     else if (product == 'storage-256gb') {
         extraStorageCost.innerText = '0';
+        updateTotal();
     }
     else if (product == 'storage-512gb') {
         extraStorageCost.innerText = '100';
+        updateTotal();
     }
     else if (product == 'storage-1tb') {
         extraStorageCost.innerText = '180';
+        updateTotal();
     }
     else if (product == 'free-delivary') {
         delivaryCost.innerText = '0';
+        updateTotal();
     }
     else {
         delivaryCost.innerText = '20';
+        updateTotal();
     }
 }
 
-// function for calculating total price
+// function for calculating total price 
+function updateTotal() {
+    const bestPriceTotal = Number(document.getElementById('best-price').innerText);
+    const memoryCostTotal = Number(document.getElementById('extra-memory-cost').innerText);
+    const storageCostTotal = Number(document.getElementById('extra-storage-cost').innerText);
+    const delivaryCostTotal = Number(document.getElementById('delivary-cost').innerText);
+    const grantTotal = bestPriceTotal + memoryCostTotal + storageCostTotal + delivaryCostTotal;
+    const total = document.getElementById('total-price');
+    total.innerText = grantTotal;
+}
+
 
 // get access two memory button
 document.getElementById('memory-8gb').addEventListener('click', function () {
