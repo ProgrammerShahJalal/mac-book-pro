@@ -49,6 +49,15 @@ function updateTotal() {
     const finalTotal = document.getElementById('final-total-price');
     finalTotal.innerText = totalPrice;
 }
+// add promo code
+document.getElementById('apply').addEventListener('click', function () {
+    const userInput = document.getElementById('promo-code').value;
+    const discount = parseInt(Number(totalPrice / 20));
+    const finalTotal = document.getElementById('final-total-price');
+    if (userInput == 'stevekaku') {
+        finalTotal.innerText = totalPrice - discount;
+    }
+})
 
 // get access two memory button
 document.getElementById('memory-8gb').addEventListener('click', function () {
