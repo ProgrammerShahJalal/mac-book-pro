@@ -52,7 +52,7 @@ function updateTotal() {
 // add promo code
 document.getElementById('apply').addEventListener('click', function () {
     const userInput = document.getElementById('promo-code').value;
-    const discount = parseInt(Number(totalPrice / 20));
+    const discount = parseInt(Number(totalPrice * 0.2));
     const finalTotal = document.getElementById('final-total-price');
     if (userInput == 'stevekaku') {
         finalTotal.innerText = totalPrice - discount;
